@@ -1,0 +1,228 @@
+:root {
+  font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color-scheme: light;
+  --primary: #0f4c81;
+  --primary-dark: #0b3a64;
+  --secondary: #1261a0;
+  --accent: #f7931e;
+  --background: #f5f7fa;
+  --surface: #ffffff;
+  --muted: rgba(31, 41, 51, 0.7);
+  --text: #1f2933;
+  --border: rgba(15, 76, 129, 0.16);
+  --shadow: 0 18px 40px rgba(15, 76, 129, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(circle at 0% 0%, rgba(18, 97, 160, 0.08), transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(247, 147, 30, 0.08), transparent 45%),
+    var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  padding: 2.5rem 1.5rem 2rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 12px 28px rgba(12, 62, 101, 0.2);
+  backdrop-filter: blur(6px);
+}
+
+header h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.015em;
+}
+
+nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  font-weight: 600;
+  padding-bottom: 0.25rem;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.4rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.65);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: #fff;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after,
+.nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.nav-link[aria-current="page"] {
+  color: #fff;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: clamp(1.5rem, 4vw, 3rem) 1.5rem 3.5rem;
+  width: 100%;
+  flex: 1 0 auto;
+}
+
+section {
+  background: var(--surface);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow);
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(18, 97, 160, 0.95), rgba(15, 76, 129, 0.85));
+  color: #fff;
+  text-align: center;
+  padding: clamp(2rem, 6vw, 3rem);
+}
+
+.hero h2 {
+  color: #fff;
+}
+
+.hero p {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.hero ul li {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+section h2 {
+  color: var(--primary);
+  font-size: clamp(1.45rem, 3vw, 1.9rem);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+section h3 {
+  color: var(--secondary);
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+p,
+li {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  word-break: keep-all;
+}
+
+ul {
+  padding-left: 1.25rem;
+}
+
+ul li::marker {
+  color: var(--secondary);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  margin: 1.5rem 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: var(--secondary);
+  color: #fff;
+}
+
+td,
+th {
+  border: 1px solid var(--border);
+  padding: 0.75rem;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+footer {
+  text-align: center;
+  padding: 2.5rem 1.5rem 2rem;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.85);
+  border-top: 1px solid rgba(12, 62, 101, 0.08);
+  margin-top: auto;
+}
+
+@media (max-width: 640px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .nav-link {
+    margin: 0.25rem 0.35rem;
+  }
+
+  section {
+    padding: 1.5rem;
+  }
+
+  table {
+    font-size: 0.95rem;
+  }
+}
